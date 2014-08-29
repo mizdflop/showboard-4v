@@ -1,0 +1,16 @@
+<template name="add_episode">
+		<h1>Add Episode</h1>
+
+	<div class="container">
+		<div class="row">	
+			<div class="col-xs-3"></div>
+			<h4>Series: _id</h4>
+			{{#each tvseries}}
+				{{seriesTitle}} : {{_id}}
+			{{/each}}
+			<div class="col-xs-7">
+				{{> quickForm collection="Episodes" id="insertTvseriesForm" type="insert"}}
+			</div>
+		</div>
+	</div>
+</template>

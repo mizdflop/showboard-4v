@@ -1,0 +1,92 @@
+<template name="topics">
+	<div class="container-fluid">
+		<div class="row title-holder" style= "background-image: url(http://31.media.tumblr.com/9482fe74a4c23e60975b01a676dbc3da/tumblr_n6rcp05Kgi1qzpxx1o1_1280.jpg)">
+			<div class="col-xs-12 desc-text">
+				{{#with thisSeries}}
+					<h3>{{seriesTitle}}</h3>
+				{{/with}}
+				{{#with thisEpisode}}
+					<h4>Episode {{seasonNumber}}.{{episodeNumber}}: {{title}}</h4>
+
+					<h5>75 Members; 125 Discussions</h5>
+				{{/with}}
+
+			</div>
+			<div class="col-xs-12 line-above">
+				<ul class="text-center">
+					<li>TOP 10</li>
+					<li>MOST ACTIVE</li>
+					<li>
+						<div class="dropdown">
+						  <span class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+						    BY SCENE
+						    <span class="caret"></span>
+						  </span>
+						  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+						  	{{#each scenesArray}}
+							    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" value="{{sceneDesc}}">{{sceneNumber}}. {{sceneDesc}}</a></li>
+							 {{/each}}
+						  </ul>
+						</div>
+					</li>
+					<li>
+						<div class="dropdown">
+						  <span class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+						    BY CHARACTER
+						    <span class="caret"></span>
+						  </span>
+						  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+						  	{{#each charactersArray}}
+							    <li role="presentation"><a role="menuitem" value="{{characterName}}" tabindex="-1" href="#">{{characterName}}</a></li>
+							 {{/each}}
+						  </ul>
+						</div>
+					</li>
+					<li>MY BOOKMARKS</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row curated-by row-centered">
+			<div class="col-xs-7 col-centered">
+				<p>Discussion Curated by <span class="accent-me">Jay Greenspan and Shayne Bowman</span></p>
+			</div>
+			<button id="addTopic" type="button" class="btn btn-primary btn-rounded">Start a Discussion</button>
+		</div>
+
+
+		{{#each topicsList}}
+
+		<div class="row topic-listing row-centered">
+			<div class="col-xs-8 col-centered listing-border">
+				<img src="{{getImage}}" width="185">
+				<div class="info-block">
+					<h1>{{orderNumber}}. {{topicTitle}}</h1>
+					<p class="article-by">Article by {{getAuthor}}, {{getSite}}</p>
+					<p class="pulled-quote">"{{conversationStarter}}"</p>
+					<div class="in-circle"><i class="fa fa-comment"></i></div>
+					<p class="observations"><span class="accent-me">{{numberComments}} observations</span> by <span class="accent-me">{{numberCommentors}} Members</span></p>
+					{{#if lastCommentTimestamp}}
+						<p class="last-comment">Last comment: {{timeAgo}}</p>
+					{{/if}}
+				</div>
+			</div>
+		</div>
+
+
+		{{/each}}
+
+
+
+		{{> addTopicModal }}
+
+		<div class="row topics-boxes-holder">
+
+
+
+
+		</div>
+
+	</div>
+</template>

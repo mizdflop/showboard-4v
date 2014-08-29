@@ -1,0 +1,17 @@
+<template name="layout">
+<header>
+    <div class="navbar header-space">
+      <div class="navbar-brand">
+        <a href="/">
+        	ShowVerse
+        </a> <span class="tagLine">Create, Share, Discuss</span>
+      </div>
+      <ul class="nav navbar-nav navbar-right">          
+
+      		{{ > accountButtons}}
+      </ul>
+  
+  	</div>
+</header>
+	{{> yield}}
+</template>

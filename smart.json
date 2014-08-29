@@ -1,0 +1,13 @@
+{
+  "packages": {
+    "iron-router": {},
+    "autoform": {},
+    "accounts-entry": {},
+    "cloudinary": {},
+    "fontawesome4": {},
+    "npm": {},
+    "typeahead": {},
+    "autoform-extension": {},
+    "publish-composite": {}
+  }
+}

@@ -1,0 +1,120 @@
+@charset "UTF-8";
+/*
+
+  Ayu Consulting Frontend Boilerplate
+  ultima actualizacion: 17 de junio 2014
+  Author: @MadeByGus - G. Andres Ibarra yo@soygus.com
+  Desde la consola navega hasta el directorio "stylesheets" y ejecuta: 
+
+  sass --watch main.scss:main.css 
+
+*/
+
+
+/*========================================
+=          Twitter Bootstrap 3.1.0      =
+========================================*/
+
+@import "b3/b3";
+
+/*========================================
+=                FOUNDATION             =
+========================================*/
+
+
+// @import "foundation/foundation";
+
+
+/*========================================
+=                  BOURBON               =
+========================================*/
+/* Bourbon (uncomment if you want it in your project.
+    Run
+      gem install bourbon
+    Go into your stylesheets directory and run
+      bourbon install
+*/
+
+// Bourbon sass tools
+// http://bourbon.io/docs/
+
+//@import "bourbon/bourbon";
+
+/*========================================
+=                EASY BOX MODEL         =
+========================================*/
+// EBM - EasyBoxModel by @MadeByGus 
+  
+$b3-enabled: true;
+@import "EBM/ebm";
+//
+
+/*========================================
+=            CSS3 ANIMATIONS             =
+========================================*/
+// Animations
+// http://daneden.github.io/animate.css/
+
+// @import "animate/animate-init";
+
+
+/*========================================
+=             APP CUSTOM                 =
+========================================*/
+
+// @import "app/app";
+
+
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic|Open+Sans:400italic,400,800,600);
+$primary_color: #ffffff;
+$primary_font: 'Source Sans Pro', sans-serif;
+$accent_font: 'Open Sans';
+$link_blue: #3e8acc;
+$9pt: .563em;
+$10pt: .813em;
+$11pt: .875em;
+$12pt: 1em;
+$13pt: 1.063em;
+$14pt: 1.125em;
+$15pt: 1.188em;
+$18pt: 1.250em;
+$21pt: 1.37em;
+$24pt: 1.5em;
+$36pt: 1.85em;
+
+
+
+html{
+  font-size:1em;
+}
+body {
+	padding-top: 0px;
+	font-family: $primary_font;
+	font-weight: 400;
+	color: #000000;
+}
+a{
+	color: $link_blue;
+}
+
+
+@import "templates/header_and_breadcrumbs";
+@import "templates/addTopicModal";
+@import "templates/topic";
+@import "templates/typeahead";
+@import "templates/addTopicModal";
+@import "templates/showTopic";
+
+/* centered columns styles */
+.row-centered {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+

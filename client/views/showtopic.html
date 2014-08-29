@@ -1,0 +1,95 @@
+<template name="showtopic">
+<div class="container-fluid">
+<div class="row breadcrumbs">
+	<div class="col-xs-12">
+		<span class="episodeTitle">{{series.seriesTitle}}</span> <span class="episodeInfo">
+		<a id="linkToTopics" href="#">{{episode.seasonNumber}}.{{episode.episodeNumber}} - {{episode.title}}</a> >
+		<a href="#">{{currentFilter}}Top 10 discussions</a> > (1 of 10)</span>
+	</div>
+</div>
+
+<div class="row topicMeta row-centered">
+	<i class="fa fa-chevron-left"></i>
+	<i class="fa fa-chevron-right"></i>
+
+	<div class="col-xs-6 col-centered">
+		<h1>{{topic.topicTitle}}</h1>
+
+		<h4>Discussion started by <a href="kkkk">{{topic.createdByUsername}}</a> on {{formatDate topic.timestamp}}</h4>
+		<img class="img-responsive" src="{{topic.linkedArticleInfo.image}}">
+		{{{topic.linkedAudioInfo.soundCloudEmbedCode}}}
+		<h5 class="author">By: {{topic.linkedArticleInfo.author}}{{topic.linkedAudioInfo.author}}</h5>
+		<h5 class="is-from">From <a href="#">{{topic.linkedArticleInfo.title}}{{topic.linkedAudioInfo.title}}</a> on <a href="#">{{topic.linkedArticleInfo.site}}{{topic.linkedAudioInfo.site}}</a></h5>
+		<p>{{topic.conversationStarter}}</p>
+		<div class="tags">
+			{{#each topic.tags}}
+				<span class="tag">{{this}}</span>
+			{{/each}}
+			<i class="fa fa-tags tag-box"></i>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-6 col-xs-offset-3 conversationMeta upper-border-me">
+		<i class="fa fa-comment"></i>Conversation has <span class="makeBold">{{topic.numberComments }} observations</span> by <span class="makeBold">{{topic.numberCommentors}} memebers</span>.
+	</div>
+	<div class="col-xs-2 text-right">		
+		<!-- sort by button here Sort by <button>this bit</button> -->
+	</div>
+</div>
+<div class="row commentList row-centered">
+	<div class="col-xs-6 col-centered">
+		<div class="observation-enter">
+			<img src="{{getMyImage}}" width="55px">
+			<div class="observation-holder" id="newObservation" contenteditable="true">{{initialText}}</div>
+		</div>
+		{{#each comments}}
+			<div class="observation-block">
+				<img src="{{getProfileImage}}" width="55px">
+				<div class="observation-holder">
+					<a href="/topics/BreakingBad/5/9/B3ZtR6pSxowzCwQZ2/"><i class="fa fa-link"></i></a>
+					<div class="primary-observation">
+						<h4>{{getUserName}}</h4>
+						<p>{{commentText}}</p>
+						<p class="observation-meta">{{timeAgo timestamp}} ago
+							{{#if alreadyRecommended recommendedBy}}
+								Recommended ({{recommendedBy.length}}) (including you) 
+							{{else}}
+								<a class="recommended-link" href="#"> Recommended</a> ({{recommendedBy.length}}) 
+							{{/if}}
+						</p>
+					</div>
+					
+
+					{{#each nestedComment this._id}}
+					<div class="secondary-observations">
+						<img src="{{getProfileImage}}" width="45px">
+						<div class="text-holder">
+							<h4>{{getUserName}}</h4>
+							<p>{{commentText}}</p>
+						</div>
+					</div>
+					{{/each}}
+
+					<div class="reply-to-conversation">
+						<span>Reply:</span> <p class="interiorReply" contenteditable="true"></p>
+					</div>
+				</div>
+			</div>
+		{{/each}}
+	</div>
+</div>
+<div class="row row-centered">
+	{{#if followed}}
+	<div class="col-xs-6 col-centered">
+		<button class="btn btn-follow" id="unfollowDiscussion"><i class="fa fa-bookmark"></i>Discussion Followed</button>
+	</div>
+	{{else}}
+	<div class="col-xs-6 col-centered">
+		<button class="btn btn-unfollow" id="followDiscussion"><i class="fa fa-bookmark"></i>Follow Discussion</button>
+	</div>
+	{{/if}}
+
+</div>
+</div>
+</template>

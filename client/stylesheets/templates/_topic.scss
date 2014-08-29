@@ -1,0 +1,166 @@
+
+.title-holder{
+	background-repeat:no-repeat;
+    background-position: top center;
+    background-size: cover;
+  /*background-size: 100%;*/
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+	position: relative;
+	min-height: 300px;
+	.desc-text{
+		margin-top: 100px;
+		padding-left:75px;
+		padding-right: 75px;
+	}
+	h3{
+		font-family: $accent_font;
+		color: #999999;
+		font-weight: 700;
+		font-size: 14px;
+		text-transform: uppercase;
+		letter-spacing: 3px;
+	}
+	h4 {
+		font-size: $36pt;	
+		font-family: $accent_font;
+		font-weight: 700;
+		color: #ffffff;
+
+	}
+	h5 {
+		font-family: $primary_font;
+		color: #f4efb5;
+		font-style: bold;
+		font-size: $18pt;
+		margin-bottom: 0px;
+		margin-top: 4px;
+	}
+	.line-above{
+		position: absolute;
+		bottom: 15px;
+		padding-left:75px;
+		padding-right: 75px;
+		.caret{
+			padding-bottom: 2px;
+		}
+	}
+	ul {
+		border-top:3px solid #a5a2a0;
+		padding-top: 8px;
+		padding-left: 20px;
+		padding-right: 20px;
+		li {			
+			cursor: pointer;
+			font-family: $primary_font;
+			font-size: $14pt;
+			color: #b3b3b3;
+			text-align: center;
+			margin-left: 25px;
+			margin-right: 25px;
+			display: inline;
+			&:hover{
+				color: #ffffff;
+				border-top: 4px solid #cccccc;
+				padding-top: 5px;
+			}
+			.dropdown{
+				display: inline;
+
+			}
+			.dropdown-menu{
+			   height: auto;
+			    max-height: 200px;
+				overflow-x: hidden;
+				padding-left:0px;
+				padding-right:0px;
+				li {
+					margin-top:0px;
+					border-top:0px;
+					text-align: left;
+					a{
+						padding: 3px 10px 20px 20px;
+					}
+				}
+			}
+		}
+	}
+}
+.curated-by{
+	position: relative;
+	margin-top: 8px;
+	margin-bottom: 12px;
+	font-size: $12pt;
+	p{
+		text-align: center;
+	}
+}
+.topic-listing{
+	margin-left: 45px;
+	margin-top:25px;
+	border-bottom: 1px soiid #666666;
+	img{
+		float: left;
+		margin-right: 36px;
+	}
+	.info-block{
+		display: table;
+		margin-left: 19px;
+	}
+	h1{
+		font-family: $accent_font;
+		font-weight: 700;
+		font-size: $18pt;
+		margin-left: -20px;
+		margin-top: 0px;
+		margin-bottom:0px;
+	}
+	.article-by{
+		font-family: $primary_font;
+		font-size: $10pt;
+		font-style: bold;
+	}
+	.pulled-quote{
+		font-size: $13pt;
+		font-family: $primary_font;
+	}
+	.in-circle{
+		border-radius: 30%;
+		background-color: #ebebeb;
+		width: 30px;
+		height: 30px;
+		text-align: center;
+		padding: 5px;
+		float: left;
+		margin-right: 14px;
+	}
+	.observations{
+		font-size: $12pt;
+		padding-bottom: 0px;
+		margin-bottom: 0px;
+
+	}
+	.last-comment{
+		font-family: $primary_font;
+		font-size: $10pt;
+		padding-top: 0px;
+
+	}
+	.listing-border{
+		border-bottom: 1px solid #eee;
+	}
+
+}
+.accent-me{
+	color: #3e8acc;
+	font-weight: bold;		
+}
+
+#addTopic{
+	position: absolute;
+	right: 75px;
+}
+.btn-rounded {
+	@include button-size(6px, 20px, 11px, 15px, 14px)
+}

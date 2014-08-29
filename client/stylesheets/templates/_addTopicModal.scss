@@ -1,0 +1,42 @@
+//for addTopicModal
+#addTopicModal {
+	ul {
+		list-style-type: none;
+		display: inline-block;
+		margin-bottom: 14px;
+		li{
+			&:hover{
+				background-color: blue;
+			}
+			float: left;
+			margin-left: 12px;
+			padding: 5px; 
+			p{
+				font-size: 12px;
+				text-align: center;
+			}
+		}		
+	}
+	h5{
+		clear: both;
+	}
+	textarea, {
+		width:100%;
+	}
+	input[type=text]{
+		width: 100%
+	}
+}
+
+.mytag {
+	background-color: #f4efb5;
+	border-radius: 15px;
+	color: black;
+	font-size: 12px;
+	padding: 6px;
+	border: 1px black;
+	white-space: nowrap;
+	.fa {
+		margin-left:5px
+	}
+}

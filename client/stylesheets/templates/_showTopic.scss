@@ -1,0 +1,245 @@
+.observation-block{
+	margin-bottom: 12px;
+	margin-top:20px;
+}
+.topicMeta{
+	position: relative;
+	margin-bottom: 14px;
+	h1{
+		font-family: $accent_font;
+		font-weight: 800;
+		font-size: $24pt;
+		margin-bottom: 1px;
+	}
+	h4{
+		font-size:$13pt;
+		margin-top: 2px;
+	}
+	h5{
+		font-size:$13pt;
+		margin-bottom: 2px;
+		margin-top: 0px;
+	}
+	.author{
+		margin-top: 10px;
+	}
+	.is-from{
+		font-style: italic;
+	}
+	p{
+		margin-top: 6px;
+		font-size: $15pt;
+	}
+	.tags{
+		text-align: right;
+		margin-right:22px;
+	}
+	.tag{
+		background-color: #d3e8f5;
+		text-align: right;
+		margin-left: 2px;
+		padding: 4px;
+		font-size: $10pt;
+		border-radius: 4px;
+
+	}
+	.tag-box{
+		background-color: #ccc;
+		text-align: right;
+		margin-left: 2px;
+		padding: 7px;
+		font-size: $11pt;
+		border-radius: 0px;
+
+	}	
+}
+
+.upper-border-me{
+	border-top: 1px solid #d3e8f5;
+}
+.conversationMeta{
+	padding-top: 28px;
+	padding-bottom: 32px;
+	text-align: center;
+	font-size: $14pt;
+	.makeBold{
+		font-weight: bold;
+	}
+	.fa-comment{
+
+		margin-right: 5px;
+	}
+}
+
+.commentList{
+	.observation-enter{
+		margin-bottom: 12px;
+		#newObservation{
+			padding: 5px;
+			font-size: 1.3em;
+			color:#999999;
+
+		}
+	}
+	h4{
+		font-family: $primary_font;
+		font-weight: 700;
+		font-size: 1.5em;
+		margin-top: 2px;
+		margin-bottom: 0px;
+	}
+	p{
+		font-family: $primary_font;
+		font-weight: 400;
+		font-size: $15pt;
+
+	}
+	hr {
+	    border: 0;
+	    height: 0;
+	    margin-top: 0px;
+	    margin-bottom: 15px;
+	    padding-left: 25px;
+	    border-top: 1px solid rgba(0, 0, 0, 0.1);
+	    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+	}
+	.text-holder{
+		width: 80%;
+		display: inline;
+	}
+	.observation-meta{
+		font-size: $13pt;
+	}
+	img{
+		float: left;
+		padding-left: 8px;
+		margin-right: 15px;
+		margin-top: 4px;
+	}
+
+}
+.observation-holder{
+	background-color: #f2f2f2;
+	width: 90%;
+	//padding: 6px;
+	margin-left: 73px;
+	border-style: solid;
+	border-color: #ececec;
+	border-width: 2px; 
+	border-radius: 5px;
+	color: black;
+	border-bottom: 1px;
+	position: relative;
+	&:before{
+		position: absolute;
+		left: -10px;
+		top: 4px;
+		content: "";
+		width: 0px;
+		height: 0px;
+		border-top: 10px solid transparent;
+		border-right: 10px solid #f2f2f2;
+		border-bottom: 10px solid transparent;
+	}
+	&:active, &:focus {
+		outline:none;
+	}
+	.primary-observation{
+		padding-top:8px;
+		padding-left: 12px;
+		width:100%;
+		border-bottom-style: solid;
+		border-bottom-color: #ececec;
+		border-bottowm-width:2px;
+	}
+	.secondary-observations{
+		margin-top:5px;
+		.text-holder{
+			display: inline-block;
+			width: 75%;
+		}
+	}
+	p{
+		font-size: $14pt;
+	}
+	h4{
+		font-size: $14pt;
+		font-weight: 700;
+	}
+	.fa-link{
+		position: absolute;
+		right: 12px;
+		top: 12px;
+		font-size: $18pt;
+		color: #999999;
+	}
+}
+.reply-to-conversation{
+	padding:12px;
+	background-color: #e9f0f4;	
+	border-radius: 4px;
+	span{
+		float:left;
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+	.interiorReply{
+		font-size: $13pt;
+		display: inline-block;
+		background-color: #ffffff;
+		height: 45px;
+		width:80%;
+		overflow: hidden;
+	}
+
+}
+
+.add-observation{
+	font-family: $primary_font;
+	font-size: 1.5em;
+	color: #999999;
+	max-height: 75px;
+	overflow: hidden;
+}	
+.btn-follow {
+	@include button-size(6px, 20px, 11px, 15px, 14px);
+	font-size: $13pt;
+	color: #009245;
+	background-color: #ffffff;
+	border-color: #009245;
+	box-shadow: none;
+	.fa{
+		padding-left:5px;
+		padding-right: 7px
+	}
+}
+.btn-unfollow {
+	@include button-size(6px, 20px, 11px, 15px, 14px);
+	font-size: $13pt;
+	color: #b3b3b3;
+	background-color: #ffffff;
+	border-color: #b3b3b3;
+	box-shadow: none;
+	.fa{
+		padding-left:5px;
+		padding-right: 7px
+	}
+}
+
+
+.fa-chevron-left {
+	font-size: 3em;
+	color:#999999;
+	position: absolute;
+	top:175px;
+	left: 25px;
+}
+.fa-chevron-right {
+	position: absolute;
+	font-size: 3em;
+	color:#999999;
+	position: absolute;
+	top:175px;
+	right: 25px;
+
+}

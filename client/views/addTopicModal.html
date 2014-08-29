@@ -1,0 +1,77 @@
+<template name="addTopicModal">
+<div id="addTopicModal" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Add Conversation Starter</h4>
+      </div>
+      <div class="modal-body">
+      	<form class="form-inline" id="conversationItemForm">	
+      		<h5>What's the source of the topic</h5>
+	        <select class="form-control" id="createTopicDropdown">
+	        	<option>Choose One</option>
+	        	<option>Article/Analysis</option>
+	        	<option>Audio/Podcast</option>
+	        	<option>Original Thought</option>
+	        </select>
+			<input type="text" id="topicTitle" class="form-control" placeholder="Enter Title">
+
+	        {{#if sectionToDisplay "Article/Analysis"}}
+	        	<h5>Enter a Title for this Topic</h5>
+
+	        	<h5>Input the URL of the Article's Source URL</h5>
+			    <input type="text" id="URLofInterest" class="form-control" placeholder="Input URL">
+			    <button id="checkURL">Fetch Info</button>
+				{{#if fetching}}
+					<p><img src="/ajax-loader.gif" height="25px"></p>
+				{{/if}}
+				<p>Title:</p> <input type="text" id="articleTitle" value="{{fetchedPageValues.title}}">
+				<p>Author:</p> <input type="text" id="articleAuthor" value="">
+				<p>Site:</p> <input type="text" id="articleSite" value="{{fetchedPageValues.site_name}}">
+				<p>Img Src:</p><input type="text" id="articleImage" value="{{fetchedPageValues.image}}">
+				<p>Image Preview:</p>
+				<p><img src="{{fetchedPageValues.image}}" width="225"></p>
+
+			{{/if}}
+
+			{{#if sectionToDisplay "Audio/Podcast"}}
+	        	<h5>Input the Soundcould embed code.</h5>
+		        <input type="text" id="audioClipSource" class="form-control" placeholder="Input URL">	
+			    <button id="fetchAudioFile">Fetch Audio</button>
+			    {{{soundCloudEmbed}}}
+				<p>Title:</p> <input type="text" id="audioTitle" value="">
+				<p>Author:</p> <input type="text" id="audioAuthor" value="">
+				<p>Site:</p> <input type="text" id="audioSite" value="">
+
+	        {{/if}}
+
+	        {{#if sectionToDisplay "Original Thought"}}
+				<p>Img Src:</p><input type="text" id="originalThoughtImageSource" value="">
+			{{/if}}			
+
+	        <h5>Enter an insight to get this conversation rolling!</h5>
+	        <textarea id="conversationStarter" Uclass="form-control" rows="3"></textarea>
+	        <h5>Tag it!</h5>
+	        <input class="form-control typeahead" id="foobar" name="showTags" type="text"
+		       placeholder="Start typing"
+		       autocomplete="off" spellcheck="off"
+		       data-source="allTags" />
+		     <p>
+		    {{#each tags}}
+		    	<span class="mytag">{{tag}}<i class="fa fa-times"></i></span>&nbsp;
+		    {{/each}}
+			</p>
+		    <p><input id="spoiler" type="checkbox"> &nbsp;Include Spoiler warning?</p> 
+
+	        <p><button type="submit" class="btn btn-primary">Add Conversation</button></p>
+
+	     </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</template>
