@@ -11,7 +11,6 @@ Meteor.publish("topics", function(topicid){
 });
 Meteor.publish("topicsForEpisode", function(seasonNumber, episodeNumber){
 	var theId = Episodes.findOne({seasonNumber: parseInt(seasonNumber), episodeNumber: parseInt(episodeNumber)})._id;
-	console.log(theId);
 	return Topics.find({episodeId: theId});
 });
 

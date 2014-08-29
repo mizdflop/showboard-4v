@@ -3,7 +3,6 @@ Meteor.methods({
 		if(urlString.substring(0,4)!=="http"){
 			urlString = "http://" + urlString;
 		}
-		console.log(urlString);
         try{
             var result = HTTP.get(urlString);
         } catch(e){

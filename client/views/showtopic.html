@@ -47,7 +47,7 @@
 			<div class="observation-block">
 				<img src="{{getProfileImage}}" width="55px">
 				<div class="observation-holder">
-					<a href="/topics/BreakingBad/5/9/B3ZtR6pSxowzCwQZ2/"><i class="fa fa-link"></i></a>
+					{{ >linkToThread threadContext }}
 					<div class="primary-observation">
 						<h4>{{getUserName}}</h4>
 						<p>{{commentText}}</p>
@@ -92,4 +92,11 @@
 
 </div>
 </div>
+</template>
+
+
+<template name="linkToThread">
+  <a href={{pathFor "showtopicone"}}>
+    <i class="fa fa-link"></i>
+  </a>
 </template>

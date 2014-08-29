@@ -29,6 +29,15 @@ Template.showtopic.helpers({
      },
      followed: function(){
      	return Meteor.user().profile.follows.indexOf(Router.current().params['topicid'])==-1 ? false : true; 
+     },
+     threadContext: function(){
+     	return {
+     		series: Router.current().params['series'],
+     		season: Router.current().params['season'],
+     		episode: Router.current().params['episode'],
+     		topicid: Router.current().params['topicid'],
+     		commentid: this._id
+     	}
      }
 });
 
@@ -60,9 +69,9 @@ Template.showtopic.events({
 			$(e.currentTarget).text('');
 		}
 	},
-	'click .fa-link': function(e){
-		Router.go("/" + this._id);
-	},
+	//'click .fa-link': function(e){
+	//	Router.go("/" + this._id);
+	//},
 	'click #linkToTopics': function(){
 		Router.go(
 			"topics",
