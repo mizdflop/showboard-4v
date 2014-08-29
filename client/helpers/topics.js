@@ -49,6 +49,22 @@ Template.topics.helpers({
   },
   timeAgo: function(){
     return moment(this.lastCommentTimestamp).fromNow();
+  },
+  topicsArray: function(){
+    var allTopics = Topics.find().fetch();
+    var allTagsArray = _.map( allTopics, function(ele, key){
+      return ele.tags;
+    });
+    var allCharTags = _.map( Episodes.findOne().characters, function(ele, key){
+       return ele.characterName;
+    });
+    var allSceneTags = _.map( Episodes.findOne().scenes, function(ele, key){
+       return ele.sceneDesc;
+    });
+    allTagsArray = _.unique(_.flatten(allTagsArray));
+    return  _.difference(allTagsArray, allCharTags, allSceneTags);
+ 
+
   }
 });
 
@@ -73,6 +89,11 @@ Template.topics.events({
   },
   'click .dropdown-menu li': function(e){
       Session.set("sortByTag", [$(e.target).attr("value")]);
+  },
+  'click .sorter li':function(e){
+      if(e.target.innerHTML=="ALL"){
+          Session.set("sortByTag", false);        
+      }
   }
 
 });

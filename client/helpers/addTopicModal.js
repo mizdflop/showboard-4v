@@ -124,6 +124,7 @@ Template.addTopicModal.events({
         }
         tempArray.push($.trim(tagToInclude));
         Session.set("tagsArray", tempArray);
+        $('.typeahead').val("");
       }
 
 
@@ -142,6 +143,7 @@ Template.addTopicModal.events({
                       $('#originalThoughtImageSource').val()
       );
       //Router.go("/");
+      $('#addTopicModal').modal('hide')
       return false; 
   },
   'click .mytag': function(e){
