@@ -3,23 +3,32 @@
 <div class="row breadcrumbs">
 	<div class="col-xs-12">
 		<span class="episodeTitle">{{series.seriesTitle}}</span> <span class="episodeInfo">
-		<a id="linkToTopics" href="#">{{episode.seasonNumber}}.{{episode.episodeNumber}} - {{episode.title}}</a> >
-		<a href="#">{{currentFilter}}Top 10 discussions</a> > (1 of 10)</span>
+		<a id="linkToTopics" href="#">{{episode.seasonNumber}}.{{episode.episodeNumber}} - {{episode.title}} >
+		{{currentFilter}}</a> ({{placmentInArrayFilter}} of {{totalWithFilter}})</span>
 	</div>
 </div>
 
 <div class="row topicMeta row-centered">
-	<i class="fa fa-chevron-left"></i>
-	<i class="fa fa-chevron-right"></i>
-
+	{{#if notFirstinArray}}
+		<a href="#" id="goToPrev"><i class="fa fa-chevron-left"></i></a>
+	{{/if}}
+	{{#if notLastinArray}}
+		<a href="#" id="goToNext"><i class="fa fa-chevron-right"></i></a>
+	{{/if}}
 	<div class="col-xs-6 col-centered">
 		<h1>{{topic.topicTitle}}</h1>
 
 		<h4>Discussion started by <a href="kkkk">{{topic.createdByUsername}}</a> on {{formatDate topic.timestamp}}</h4>
 		<img class="img-responsive" src="{{topic.linkedArticleInfo.image}}">
 		{{{topic.linkedAudioInfo.soundCloudEmbedCode}}}
-		<h5 class="author">By: {{topic.linkedArticleInfo.author}}{{topic.linkedAudioInfo.author}}</h5>
-		<h5 class="is-from">From <a href="#">{{topic.linkedArticleInfo.title}}{{topic.linkedAudioInfo.title}}</a> on <a href="#">{{topic.linkedArticleInfo.site}}{{topic.linkedAudioInfo.site}}</a></h5>
+		<h5 class="author">By: 
+			{{topic.linkedArticleInfo.author}}
+			{{topic.linkedAudioInfo.author}}</h5>
+		<h5 class="is-from">From <a href="#">
+			{{topic.linkedArticleInfo.title}}
+			{{topic.linkedAudioInfo.title}}</a> on 
+			<a href="#">{{topic.linkedArticleInfo.site}}
+			{{topic.linkedAudioInfo.site}}</a></h5>
 		<p>{{topic.conversationStarter}}</p>
 		<div class="tags">
 			{{#each topic.tags}}

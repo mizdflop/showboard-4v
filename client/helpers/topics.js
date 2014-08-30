@@ -63,8 +63,6 @@ Template.topics.helpers({
     });
     allTagsArray = _.unique(_.flatten(allTagsArray));
     return  _.difference(allTagsArray, allCharTags, allSceneTags);
- 
-
   }
 });
 

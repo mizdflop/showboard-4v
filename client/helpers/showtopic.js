@@ -38,7 +38,23 @@ Template.showtopic.helpers({
      		topicid: Router.current().params['topicid'],
      		commentid: this._id
      	}
+     },
+     currentFilter: function(){
+     	return Session.equals("sortByTag", false) ? "All Topics" : Session.get("sortByTag"); 
+     },
+     totalWithFilter: function(){
+     	return Session.get("sortedIds").length;
+     },
+     placmentInArrayFilter: function(){
+     	return Session.get("sortedIds").indexOf(Router.current().params['topicid']) + 1;	
+     },
+     notFirstinArray: function(){
+     	return Session.get("sortedIds").indexOf(Router.current().params['topicid']);
+     },
+     notLastinArray: function(){
+     	return Session.get("sortedIds").reverse().indexOf(Router.current().params['topicid']);
      }
+     
 });
 
 Template.showtopic.events({
@@ -64,7 +80,6 @@ Template.showtopic.events({
 	},
 	'keydown .interiorReply': function(e){
 		if(e.keyCode==13){
-			console.log(e.currentTarget.innerText);
 			insertComment( Topics.findOne()._id, Meteor.userId(), e.currentTarget.innerText, this._id );
 			$(e.currentTarget).text('');
 		}
@@ -93,7 +108,29 @@ Template.showtopic.events({
 			{_id: Meteor.userId() },
 			{$pull: { "profile.follows": Router.current().params['topicid'] }}
 		);
-	}	
+	},
+	'click #goToNext': function(){
+     	Router.go("showtopic", 
+     		{
+	     		series: Router.current().params['series'],
+	     		season: Router.current().params['season'],
+	     		episode: Router.current().params['episode'],
+	     		topicid: Session.get("sortedIds")[Session.get("sortedIds").indexOf(Router.current().params['topicid']) + 1]
+
+     		}
+     	);
+     },
+     'click #goToPrev': function(){
+     	Router.go("showtopic", 
+     		{
+	     		series: Router.current().params['series'],
+	     		season: Router.current().params['season'],
+	     		episode: Router.current().params['episode'],
+	     		topicid: Session.get("sortedIds")[Session.get("sortedIds").indexOf(Router.current().params['topicid']) - 1]
+
+     		}
+     	);
+     },	
 });
 
 //combine into a callback function on inssert. this isn't going to work like this. 
