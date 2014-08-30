@@ -13,6 +13,15 @@ Meteor.publish("topicsForEpisode", function(seasonNumber, episodeNumber){
 	var theId = Episodes.findOne({seasonNumber: parseInt(seasonNumber), episodeNumber: parseInt(episodeNumber)})._id;
 	return Topics.find({episodeId: theId});
 });
+Meteor.publish("numberOfDiscussions", function(seasonNumber, episodeNumber){
+	var theId = Episodes.findOne({seasonNumber: parseInt(seasonNumber), episodeNumber: parseInt(episodeNumber)})._id;
+	return Comments.find({parentId:"0"});
+
+
+//	return  Comments.distinct("userId" ).count();
+});
+
+
 
 Meteor.publishComposite('comments', function(topicId, commentId) {
 	return{

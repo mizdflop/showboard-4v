@@ -10,7 +10,8 @@
       "npm": {},
       "typeahead": {},
       "autoform-extension": {},
-      "publish-composite": {}
+      "publish-composite": {},
+      "mongodb-aggregation": {}
     },
     "packages": {
       "iron-router": {
@@ -55,8 +56,13 @@
       },
       "publish-composite": {
         "git": "https://github.com/englue/meteor-publish-composite.git",
-        "tag": "v1.2.1",
-        "commit": "a4bf4609180798a7f6c1718bbe0abce961c874c7"
+        "tag": "v1.2.2",
+        "commit": "7d8f7ad1d3ff8fc9ee0db89facb46d837506846c"
+      },
+      "mongodb-aggregation": {
+        "git": "https://github.com/jhoxray/meteor-mongo-extensions.git",
+        "tag": "v0.1.71",
+        "commit": "da9661c47b3797cec062005f01f84a4723051438"
       },
       "iron-layout": {
         "git": "https://github.com/EventedMind/iron-layout.git",

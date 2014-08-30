@@ -63,7 +63,21 @@ Template.topics.helpers({
     });
     allTagsArray = _.unique(_.flatten(allTagsArray));
     return  _.difference(allTagsArray, allCharTags, allSceneTags);
+  },
+  totalDiscussions: function(){
+    return Comments.find().count();
+  },
+  totalCommentors: function(){
+    var count;
+    Comments.distinct("userId", function(error, result){
+      if(result){
+        Session.set("userCount",result.length);
+        return count;
+      }
+    });
+    return Session.get("userCount");
   }
+
 });
 
 Template.topics.events({

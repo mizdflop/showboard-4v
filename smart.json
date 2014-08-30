@@ -8,6 +8,7 @@
     "npm": {},
     "typeahead": {},
     "autoform-extension": {},
-    "publish-composite": {}
+    "publish-composite": {},
+    "mongodb-aggregation": {}
   }
 }

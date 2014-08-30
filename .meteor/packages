@@ -16,3 +16,4 @@ autoform-extension
 collection2
 http
 publish-composite
+mongodb-aggregation
