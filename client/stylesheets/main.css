@@ -5480,3 +5480,16 @@ a {
   text-align: left;
   /* inline-block space fix */
   margin-right: -4px; }
+
+.inThisDiscussion {
+  display: inline;
+  padding-bottom: 3px;
+  margin-right: 14px;
+  float: right; }
+  .inThisDiscussion h5 {
+    display: inline;
+    font-size: 1em;
+    margin-right: 6px; }
+  .inThisDiscussion img {
+    display: inline;
+    margin-left: 6px; }

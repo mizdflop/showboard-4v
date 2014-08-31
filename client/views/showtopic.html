@@ -5,6 +5,7 @@
 		<span class="episodeTitle">{{series.seriesTitle}}</span> <span class="episodeInfo">
 		<a id="linkToTopics" href="#">{{episode.seasonNumber}}.{{episode.episodeNumber}} - {{episode.title}} >
 		{{currentFilter}}</a> ({{placmentInArrayFilter}} of {{totalWithFilter}})</span>
+		{{> inThisDiscussion }}
 	</div>
 </div>
 
@@ -108,4 +109,13 @@
   <a href={{pathFor "showtopicone"}}>
     <i class="fa fa-link"></i>
   </a>
+</template>
+
+<template name="inThisDiscussion">
+	<span class="inThisDiscussion">	
+		<h5>In these discussions:</h5>
+		{{#each topicCommentor}}
+			<img src="{{profile.image}}" height="25px">
+		{{/each}}
+	</span>
 </template>

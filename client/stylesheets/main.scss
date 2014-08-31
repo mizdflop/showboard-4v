@@ -117,4 +117,18 @@ a{
     /* inline-block space fix */
     margin-right:-4px;
 }
-
+.inThisDiscussion{
+  display: inline;
+  padding-bottom: 3px;
+  margin-right: 14px;
+  float: right;
+  h5{
+    display: inline;
+    font-size: $12pt;
+    margin-right: 6px
+  }
+  img{
+    display: inline;
+    margin-left: 6px;
+  }
+}
