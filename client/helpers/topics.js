@@ -1,5 +1,5 @@
 orderNumber = 1;
-Session.set("sortByTag", false);
+Session.set("sortByTag", "ALL");
 Template.topics.helpers({
   thisSeries: function(){
     return Tvseries.findOne();
@@ -103,10 +103,14 @@ Template.topics.events({
       Session.set("sortByTag", [$(e.target).attr("value")]);
   },
   'click .sorter li':function(e){
-      if(e.target.innerHTML=="ALL"){
-          Session.set("sortByTag", false);        
-      }
-  }
+    if(e.target.innerHTML =="ALL" ||
+      e.target.innerHTML =="MY BOOKMARKS" ||
+      e.target.innerHTML =="TOP 10"
+    ){ 
+      Session.set("sortByTag", e.target.innerHTML);
+      console.log(Session.get("sortByTag"));
+    }
+  } 
 
 });
 Template.topics.rendered = function(){
