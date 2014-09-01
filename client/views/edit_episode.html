@@ -1,0 +1,17 @@
+<template name="edit_episode">
+		<h1>Edit Episode</h1>
+
+	<div class="container">
+		<div class="row">	
+			<div class="col-xs-3"></div>
+			<h4>Series: _id</h4>
+			{{#each episodes}}
+				<a href="#">{{seasonNumber}} : {{episodeNumber}}  {{title}}</a>
+			{{/each}}
+			<div class="col-xs-7">
+				{{> quickForm collection="Episodes" doc=editingDoc id="updateEpisodesForm" type="update"}}
+
+			</div>
+		</div>
+	</div>
+</template>

@@ -1,4 +1,7 @@
 //needs to be fixed to work with different series
+Meteor.publish("allEpisodes", function(){
+	return Episodes.find({});
+});
 Meteor.publish("episodes", function(seasonNumber, episodeNumber){
 	return Episodes.find({seasonNumber: parseInt(seasonNumber), episodeNumber: parseInt(episodeNumber)});
 });

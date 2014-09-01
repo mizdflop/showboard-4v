@@ -42,7 +42,7 @@ Template.topics.helpers({
   },
   getImage: function(){
     if( this.noteType=="Audio/Podcast"){
-      return '/img/pocast_placeholder.gif';
+      return '/podcasts.png';
     } else if (this.noteType =="Article/Analysis"){
       return this.linkedArticleInfo.image;
     }    
@@ -90,7 +90,7 @@ Template.topics.events({
   'click #addTopic': function(){
      $('#addTopicModal').modal('show');
   },
-  'click .topic-listing': function(){
+  'click .clickToTopic': function(){
     var linkparams = {
       "series": Router.current().params["series"],
       "season": Router.current().params["season"],

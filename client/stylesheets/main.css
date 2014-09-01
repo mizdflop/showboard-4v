@@ -5127,6 +5127,9 @@ a {
   margin-left: 45px;
   margin-top: 25px;
   border-bottom: 1px soiid #666666; }
+  .topic-listing a {
+    text-decoration: none;
+    color: #000; }
   .topic-listing img {
     float: left;
     margin-right: 36px; }
