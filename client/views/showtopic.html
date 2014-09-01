@@ -6,6 +6,7 @@
 		<a id="linkToTopics" href="#">{{episode.seasonNumber}}.{{episode.episodeNumber}} - {{episode.title}} >
 		{{currentFilter}}</a> ({{placmentInArrayFilter}} of {{totalWithFilter}})</span>
 		{{> inThisDiscussion }}
+
 	</div>
 </div>
 
@@ -18,6 +19,7 @@
 	{{/if}}
 	<div class="col-xs-6 col-centered">
 		<h1>{{topic.topicTitle}}</h1>
+
 
 		<h4>Discussion started by <a href="kkkk">{{topic.createdByUsername}}</a> on {{formatDate topic.timestamp}}</h4>
 		<img class="img-responsive" src="{{topic.linkedArticleInfo.image}}">
@@ -112,10 +114,12 @@
 </template>
 
 <template name="inThisDiscussion">
-	<span class="inThisDiscussion">	
-		<h5>In these discussions:</h5>
-		{{#each topicCommentor}}
-			<img src="{{profile.image}}" height="25px">
-		{{/each}}
-	</span>
+	{{#if commentsExist}}
+		<span class="inThisDiscussion">	
+			<h5>In these discussions:</h5>
+			{{#each topicCommentor}}
+				<img src="{{profile.image}}" height="25px">
+			{{/each}}
+		</span>
+	{{/if}}
 </template>

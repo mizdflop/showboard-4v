@@ -1,4 +1,7 @@
 Template.inThisDiscussion.helpers({
+	commentsExist: function(){
+		return Comments.find().count();
+	},
 	topicCommentor: function () {
 		//current user will be included by default.
 		//want to make sure current user has made a comment to this thread, 
