@@ -141,6 +141,12 @@ function insertComment(topicId, userId, commentText, parent){
 	} else {
 		updateModifer = {$inc: {numberComments: 1}, $set: {lastCommentTimestamp: Date() }};
 	}
+	if( Meteor.user().profile.commentedOn === undefined || Meteor.user().profile.commentedOn.indexOf(topicId) === -1){
+		Meteor.users.update(
+			{_id: Meteor.userId() },
+			{$push: { "profile.commentedOn": topicId }}
+		);
+	}
 	Topics.update({_id: topicId}, updateModifer, function(error, numberModified){
 		if(numberModified){
 			insertNew( topicId, Meteor.userId(), commentText, parent );
