@@ -2,6 +2,13 @@
 Meteor.publish("allEpisodes", function(){
 	return Episodes.find({});
 });
+Meteor.publish("allComments", function(){
+	return Comments.find({});
+});
+Meteor.publish("allTopics", function(){
+	return Topics.find({});
+});
+
 Meteor.publish("episodes", function(seasonNumber, episodeNumber){
 	return Episodes.find({seasonNumber: parseInt(seasonNumber), episodeNumber: parseInt(episodeNumber)});
 });

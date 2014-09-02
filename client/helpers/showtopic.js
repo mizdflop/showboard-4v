@@ -79,7 +79,6 @@ Template.showtopic.events({
 		}		
 	},
 	'click .recommended-link': function(){
-		console.log(this._id);
 		commentRecommended(this._id, Meteor.userId());
 	},
 	'keydown .interiorReply': function(e){
@@ -139,7 +138,6 @@ Template.showtopic.events({
      	alert("Social features are not yet active but will be soon.")
      },
      'click .dropdown-menu li': function(e){
-     	console.log(e);
      	Session.set("sortedBy", e.target.innerText);
      }
 });
