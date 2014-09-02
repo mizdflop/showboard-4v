@@ -57,8 +57,11 @@ Template.showtopic.helpers({
      },
      sortedBy: function(){
      	return Session.get("sortedBy");
+     },
+     isOriginalThought: function(str){
+     	console.log(str);
+    	return str =="Original Thought" ? true: false;
      }
-     
 });
 
 Template.showtopic.events({

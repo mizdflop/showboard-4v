@@ -5288,6 +5288,9 @@ a {
     margin-top: 0px; }
   .topicMeta .author {
     margin-top: 10px; }
+  .topicMeta .origComment {
+    margin-top: 10px;
+    font-weight: 700; }
   .topicMeta .is-from {
     font-style: italic; }
   .topicMeta p {

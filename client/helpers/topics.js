@@ -45,7 +45,12 @@ Template.topics.helpers({
       return '/podcasts.png';
     } else if (this.noteType =="Article/Analysis"){
       return this.linkedArticleInfo.image;
-    }    
+    } else if(this.noteType =="Original Thought") {
+      return this.originalThoughtImageSource;
+    }  
+  },
+  isOriginalComment: function(){
+    return this.noteType =="Original Thought" ? true: false;
   },
   timeAgo: function(){
     return moment(this.lastCommentTimestamp).fromNow();

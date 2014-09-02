@@ -19,12 +19,14 @@
 	{{/if}}
 	<div class="col-xs-8 col-centered">
 		<h1>{{topic.topicTitle}}</h1>
-
-
 		<h4>Discussion started by <a href="kkkk">{{topic.createdByUsername}}</a> on {{formatDate topic.timestamp}}</h4>
-		<img class="img-responsive" src="{{topic.linkedArticleInfo.image}}">
+		<img class="img-responsive" src="{{topic.linkedArticleInfo.image}}{{topic.originalThoughtImageSource}}">
 		{{{topic.linkedAudioInfo.soundCloudEmbedCode}}}
-		<h5 class="author">By: 
+
+		{{#if isOriginalThought topic.noteType}}
+				<h5 class="origComment">An orignal comment by {{topic.createdByUsername}}:</h5> 
+		{{else}}
+		<h5 class="origComment">By: 
 			{{topic.linkedArticleInfo.author}}
 			{{topic.linkedAudioInfo.author}}</h5>
 		<h5 class="is-from">From <a href="{{topic.linkedArticleInfo.URL}}">
@@ -32,6 +34,9 @@
 			{{topic.linkedAudioInfo.title}}</a> on 
 			{{topic.linkedArticleInfo.site}}
 			{{topic.linkedAudioInfo.site}}</h5>
+		{{/if}}
+
+
 		<p>{{topic.conversationStarter}}</p>
 		<div class="tags">
 			{{#each topic.tags}}

@@ -77,16 +77,23 @@
 				<a href="#" class="clickToTopic">
 				<img src="{{getImage}}" width="185">
 				<div class="info-block">
+
 					<h1>{{topicTitle}}</h1>
+
+					{{#if isOriginalComment}}
+					<p class="article-by">An original thought by {{createdByUsername}}</p>
+
+					{{else}}
 					<p class="article-by">Article by {{getAuthor}}, {{getSite}}</p>
+					{{/if}}
 					<p class="pulled-quote">"{{conversationStarter}}"</p>
 					<div class="in-circle"><i class="fa fa-comment"></i></div>
 					<p class="observations"><span class="accent-me">{{numberComments}} observations</span> by <span class="accent-me">{{numberCommentors}} Members</span></p>
-					{{#if lastCommentTimestamp}}
-						<p class="last-comment">Last comment: {{timeAgo}}</p>
-					{{else}}
-						<p class="last-comment"> </p>
-					{{/if}}
+						{{#if lastCommentTimestamp}}
+							<p class="last-comment">Last comment: {{timeAgo}}</p>
+						{{else}}
+							<p class="last-comment"> </p>
+						{{/if}}
 				</div>
 				</a>
 			</div>
