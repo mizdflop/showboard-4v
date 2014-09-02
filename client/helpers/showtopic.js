@@ -13,7 +13,7 @@ Template.showtopic.helpers({
      	return arr.reverse();
      },
      alreadyRecommended: function(arr){
-     	return arr.indexOf(Meteor.userId()) ==-1 ? true : false;
+     	return arr.indexOf(Meteor.userId()) ==-1 ? false : true;
      },
      nestedComment: function(idstr){
      	return Comments.find({parentId: idstr}, {sort: {timestamp: 1}});

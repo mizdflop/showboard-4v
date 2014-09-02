@@ -17,7 +17,7 @@
 	{{#if notLastinArray}}
 		<a href="#" id="goToNext"><i class="fa fa-chevron-right"></i></a>	
 	{{/if}}
-	<div class="col-xs-6 col-centered">
+	<div class="col-xs-7 col-centered">
 		<h1>{{topic.topicTitle}}</h1>
 
 
@@ -27,11 +27,11 @@
 		<h5 class="author">By: 
 			{{topic.linkedArticleInfo.author}}
 			{{topic.linkedAudioInfo.author}}</h5>
-		<h5 class="is-from">From <a href="#">
+		<h5 class="is-from">From <a href="{{topic.linkedArticleInfo.URL}}">
 			{{topic.linkedArticleInfo.title}}
 			{{topic.linkedAudioInfo.title}}</a> on 
-			<a href="#">{{topic.linkedArticleInfo.site}}
-			{{topic.linkedAudioInfo.site}}</a></h5>
+			{{topic.linkedArticleInfo.site}}
+			{{topic.linkedAudioInfo.site}}</h5>
 		<p>{{topic.conversationStarter}}</p>
 		<div class="tags">
 			{{#each topic.tags}}
@@ -41,16 +41,13 @@
 		</div>
 	</div>
 </div>
-<div class="row">
-	<div class="col-xs-6 col-xs-offset-3 conversationMeta upper-border-me">
+<div class="row row-centered">
+	<div class="col-xs-7 col-centered conversationMeta upper-border-me">
 		<i class="fa fa-comment"></i>Conversation has <span class="makeBold">{{topic.numberComments }} observations</span> by <span class="makeBold">{{topic.numberCommentors}} memebers</span>.
-	</div>
-	<div class="col-xs-2 text-right">		
-		<!-- sort by button here Sort by <button>this bit</button> -->
 	</div>
 </div>
 <div class="row commentList row-centered">
-	<div class="col-xs-6 col-centered">
+	<div class="col-xs-7 col-centered">
 		<div class="observation-enter">
 			<img src="{{getMyImage}}" width="55px">
 			<div class="observation-holder" id="newObservation" contenteditable="true">{{initialText}}</div>
@@ -63,9 +60,9 @@
 					<div class="primary-observation">
 						<h4>{{getUserName}}</h4>
 						<p>{{commentText}}</p>
-						<p class="observation-meta">{{timeAgo timestamp}} ago
+						<p class="observation-meta">{{timeAgo timestamp}} | 
 							{{#if alreadyRecommended recommendedBy}}
-								Recommended ({{recommendedBy.length}}) (including you) 
+								Recommended ({{recommendedBy.length}})  
 							{{else}}
 								<a class="recommended-link" href="#"> Recommended</a> ({{recommendedBy.length}}) 
 							{{/if}}
@@ -93,7 +90,7 @@
 </div>
 <div class="row row-centered">
 	{{#if followed}}
-	<div class="col-xs-6 col-centered">
+	<div class="col-xs-7 col-centered">
 		<button class="btn btn-follow" id="unfollowDiscussion"><i class="fa fa-bookmark"></i>Discussion Followed</button>
 	</div>
 	{{else}}
@@ -116,7 +113,7 @@
 <template name="inThisDiscussion">
 	{{#if commentsExist}}
 		<span class="inThisDiscussion">	
-			<h5>In these discussions:</h5>
+			<h5>Discussing this topic:</h5>
 			{{#each topicCommentor}}
 				<img src="{{profile.image}}" height="25px">
 			{{/each}}

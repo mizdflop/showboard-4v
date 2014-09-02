@@ -5315,8 +5315,8 @@ a {
   border-top: 1px solid #d3e8f5; }
 
 .conversationMeta {
-  padding-top: 28px;
-  padding-bottom: 32px;
+  padding-top: 14px;
+  padding-bottom: 30px;
   text-align: center;
   font-size: 1.125em; }
   .conversationMeta .makeBold {
@@ -5328,7 +5328,7 @@ a {
   margin-bottom: 12px; }
   .commentList .observation-enter #newObservation {
     padding: 5px;
-    font-size: 1.3em;
+    font-size: 1em;
     color: #999999; }
 .commentList h4 {
   font-family: 'Source Sans Pro', sans-serif;
@@ -5352,7 +5352,7 @@ a {
   width: 80%;
   display: inline; }
 .commentList .observation-meta {
-  font-size: 1.063em; }
+  font-size: 1em; }
 .commentList img {
   float: left;
   padding-left: 8px;
@@ -5407,7 +5407,9 @@ a {
     color: #999999; }
 
 .reply-to-conversation {
-  padding: 12px;
+  padding-top: 8px;
+  padding-bottom: 1px;
+  padding-right: 6px;
   background-color: #e9f0f4;
   border-radius: 4px; }
   .reply-to-conversation span {
@@ -5416,10 +5418,10 @@ a {
     margin-right: 10px; }
   .reply-to-conversation .interiorReply {
     font-size: 1.063em;
-    display: inline-block;
+    display: block;
     background-color: #ffffff;
     height: 45px;
-    width: 80%;
+    width: 100;
     overflow: hidden; }
 
 .add-observation {
