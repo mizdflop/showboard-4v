@@ -1,4 +1,5 @@
 var initialEnterText = "Add an observation...";
+Session.set("sortedBy", "Most Recent");
 Template.showtopic.helpers({
 	formatDate: function (timestamp) {
 		return moment().format('LL', timestamp);
@@ -53,6 +54,9 @@ Template.showtopic.helpers({
      },
      notLastinArray: function(){
      	return Session.get("sortedIds").reverse().indexOf(Router.current().params['topicid']);
+     },
+     sortedBy: function(){
+     	return Session.get("sortedBy");
      }
      
 });
@@ -133,6 +137,10 @@ Template.showtopic.events({
      },	
      'click .btn-social': function(){
      	alert("Social features are not yet active but will be soon.")
+     },
+     'click .dropdown-menu li': function(e){
+     	console.log(e);
+     	Session.set("sortedBy", e.target.innerText);
      }
 });
 
@@ -155,6 +163,7 @@ function insertComment(topicId, userId, commentText, parent){
 			insertNew( topicId, Meteor.userId(), commentText, parent );
 		}
 	});
+	Comments.update({_id: parent}, {$inc: {numberReplies: 1}});
 }
 
 
@@ -171,6 +180,6 @@ function insertNew ( topicId, userId, commentText, parent) {
 }
 
 function commentRecommended(commentId, userId){
-	Comments.update({_id: commentId}, {$push: {recommendedBy: userId}})
+	Comments.update({_id: commentId}, {$inc: {numberRecommendations: 1}, $push: {recommendedBy: userId}})
 
 }

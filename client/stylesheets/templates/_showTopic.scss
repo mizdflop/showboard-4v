@@ -69,12 +69,25 @@
 
 		margin-right: 5px;
 	}
-	.btn-group{
+	.sorter{
 		float: right;
+		font-size: $12pt;
+		font-style: bold;
+		.dropdown-menu{
+			min-width: 45px;
+			padding: 15px;
+			border: 0px;
+			a{
+				border: 0px;
+			}
+		}
+		h5{
+			display: inline;
+			font-size: $11pt;
+			margin-right: 8px;
+		}
 	}
-	h5 {
-		display: inline;
-	}
+
 }
 
 .commentList{
@@ -204,6 +217,9 @@
 	}
 
 }
+.follow-social{
+	margin-top: 15px;
+}
 
 .add-observation{
 	font-family: $primary_font;
@@ -238,19 +254,19 @@
 }
 .btn-sort {
 	@include button-size(6px, 20px, 11px, 15px, 14px);
-	font-size: $12pt;
+	font-size: $11pt;
 	font-style: bold;
 	color: #000;
 	background-color: #f2f2f2;
 	border-color: #b3b3b3;
 	box-shadow: none;
+	float: none;
 
 }
 .btn-social {
-	@include button-size(6px, 20px, 11px, 15px, 14px);
+	@include button-size(6px, 15px, 11px, 15px, 14px);
 	float: right;
 	font-size: $12pt;
-	font-style: bold;
 	color: #000;
 	background-color: #fff;
 	border-color: #999999;

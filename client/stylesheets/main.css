@@ -5323,10 +5323,20 @@ a {
     font-weight: bold; }
   .conversationMeta .fa-comment {
     margin-right: 5px; }
-  .conversationMeta .btn-group {
-    float: right; }
-  .conversationMeta h5 {
-    display: inline; }
+  .conversationMeta .sorter {
+    float: right;
+    font-size: 1em;
+    font-style: bold; }
+    .conversationMeta .sorter .dropdown-menu {
+      min-width: 45px;
+      padding: 15px;
+      border: 0px; }
+      .conversationMeta .sorter .dropdown-menu a {
+        border: 0px; }
+    .conversationMeta .sorter h5 {
+      display: inline;
+      font-size: 0.875em;
+      margin-right: 8px; }
 
 .commentList .observation-enter {
   margin-bottom: 12px; }
@@ -5428,6 +5438,9 @@ a {
     width: 100;
     overflow: hidden; }
 
+.follow-social {
+  margin-top: 15px; }
+
 .add-observation {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 1.5em;
@@ -5468,21 +5481,21 @@ a {
   font-size: 11px;
   line-height: 15px;
   border-radius: 14px;
-  font-size: 1em;
+  font-size: 0.875em;
   font-style: bold;
   color: #000;
   background-color: #f2f2f2;
   border-color: #b3b3b3;
-  box-shadow: none; }
+  box-shadow: none;
+  float: none; }
 
 .btn-social {
-  padding: 6px 20px;
+  padding: 6px 15px;
   font-size: 11px;
   line-height: 15px;
   border-radius: 14px;
   float: right;
   font-size: 1em;
-  font-style: bold;
   color: #000;
   background-color: #fff;
   border-color: #999999;

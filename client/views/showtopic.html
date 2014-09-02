@@ -17,7 +17,7 @@
 	{{#if notLastinArray}}
 		<a href="#" id="goToNext"><i class="fa fa-chevron-right"></i></a>	
 	{{/if}}
-	<div class="col-xs-7 col-centered">
+	<div class="col-xs-8 col-centered">
 		<h1>{{topic.topicTitle}}</h1>
 
 
@@ -42,27 +42,29 @@
 	</div>
 </div>
 <div class="row row-centered">
-	<div class="col-xs-7 col-centered conversationMeta upper-border-me">
+	<div class="col-xs-8 col-centered conversationMeta upper-border-me">
 		<i class="fa fa-comment"></i>Conversation has <span class="makeBold">{{topic.numberComments }} observations</span> by <span class="makeBold">{{topic.numberCommentors}} memebers</span>.
 		<!--
-		Single button 
-		<div class="btn-group">
-		  <h5>Sort by:</h5>
-		  <button type="button" class="btn btn-sort dropdown-toggle" data-toggle="dropdown">
-		    Sort <span class="caret"></span>
-		  </button>
-		  <ul class="dropdown-menu" role="menu">
-		    <li><a href="#">Most Recent</a></li>
-		    <li><a href="#">Most Liked</a></li>
-		    <li><a href="#">Most Comments</a></li>
-		  </ul>
+		Single button 	-->
+		<div class="sorter">
+			<h5>Sort by: </h5>	
+			<div class="btn-group ">
+			  <button type="button" class="btn btn-sort dropdown-toggle" data-toggle="dropdown">
+			    {{sortedBy}}  <span class="caret"></span>
+			  </button>
+			  <ul class="dropdown-menu" role="menu">
+			    <li><a href="#">Most Recent</a></li>
+			    <li><a href="#">Most Recommended</a></li>
+			    <li><a href="#">Most Replies</a></li>
+			  </ul>
+			</div>
 		</div>
-	-->
+
 
 	</div>
 </div>
 <div class="row commentList row-centered">
-	<div class="col-xs-7 col-centered">
+	<div class="col-xs-8 col-centered">
 		<div class="observation-enter">
 			<img src="{{getMyImage}}" width="55px">
 			<div class="observation-holder" id="newObservation" contenteditable="true">{{initialText}}</div>
@@ -103,8 +105,8 @@
 		{{/each}}
 	</div>
 </div>
-<div class="row row-centered">
-	<div class="col-xs-7 col-centered">
+<div class="row row-centered follow-social">
+	<div class="col-xs-8 col-centered">
 	{{#if followed}}
 		<button class="btn btn-follow" id="unfollowDiscussion"><i class="fa fa-bookmark"></i>Discussion Followed</button>
 	{{else}}
