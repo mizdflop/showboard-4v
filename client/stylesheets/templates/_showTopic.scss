@@ -96,7 +96,7 @@
 
 .commentList{
 	.observation-enter{
-		margin-bottom: 12px;
+		margin-bottom: 32px;
 		#newObservation{
 			padding: 5px;
 			font-size: $12pt;
@@ -195,9 +195,12 @@
 	.fa-link{
 		position: absolute;
 		right: 12px;
-		top: 12px;
+		top: 4px;
 		font-size: $18pt;
 		color: #999999;
+		-ms-transform: rotate(-45deg); /* IE 9 */
+        -webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
+         transform: rotate(-45deg);
 	}
 }
 .reply-to-conversation{

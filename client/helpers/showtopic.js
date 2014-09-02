@@ -59,9 +59,17 @@ Template.showtopic.helpers({
      	return Session.get("sortedBy");
      },
      isOriginalThought: function(str){
-     	console.log(str);
+     	//console.log(str);
     	return str =="Original Thought" ? true: false;
-     }
+     },
+     isAudio: function(str){
+     	//console.log(str);
+    	return str =="Audio/Podcast" ? true: false;
+     },
+     isArticle: function(str){
+     	//console.log(str);
+    	return str =="Article/Analysis" ? true: false;
+     }          
 });
 
 Template.showtopic.events({

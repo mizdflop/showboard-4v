@@ -5342,7 +5342,7 @@ a {
       margin-right: 8px; }
 
 .commentList .observation-enter {
-  margin-bottom: 12px; }
+  margin-bottom: 32px; }
   .commentList .observation-enter #newObservation {
     padding: 5px;
     font-size: 1em;
@@ -5419,9 +5419,14 @@ a {
   .observation-holder .fa-link {
     position: absolute;
     right: 12px;
-    top: 12px;
+    top: 4px;
     font-size: 1.25em;
-    color: #999999; }
+    color: #999999;
+    -ms-transform: rotate(-45deg);
+    /* IE 9 */
+    -webkit-transform: rotate(-45deg);
+    /* Chrome, Safari, Opera */
+    transform: rotate(-45deg); }
 
 .reply-to-conversation {
   padding-top: 8px;
