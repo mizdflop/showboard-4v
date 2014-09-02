@@ -44,6 +44,21 @@
 <div class="row row-centered">
 	<div class="col-xs-7 col-centered conversationMeta upper-border-me">
 		<i class="fa fa-comment"></i>Conversation has <span class="makeBold">{{topic.numberComments }} observations</span> by <span class="makeBold">{{topic.numberCommentors}} memebers</span>.
+		<!--
+		Single button 
+		<div class="btn-group">
+		  <h5>Sort by:</h5>
+		  <button type="button" class="btn btn-sort dropdown-toggle" data-toggle="dropdown">
+		    Sort <span class="caret"></span>
+		  </button>
+		  <ul class="dropdown-menu" role="menu">
+		    <li><a href="#">Most Recent</a></li>
+		    <li><a href="#">Most Liked</a></li>
+		    <li><a href="#">Most Comments</a></li>
+		  </ul>
+		</div>
+	-->
+
 	</div>
 </div>
 <div class="row commentList row-centered">
@@ -89,16 +104,14 @@
 	</div>
 </div>
 <div class="row row-centered">
-	{{#if followed}}
 	<div class="col-xs-7 col-centered">
+	{{#if followed}}
 		<button class="btn btn-follow" id="unfollowDiscussion"><i class="fa fa-bookmark"></i>Discussion Followed</button>
-	</div>
 	{{else}}
-	<div class="col-xs-6 col-centered">
 		<button class="btn btn-unfollow" id="followDiscussion"><i class="fa fa-bookmark"></i>Follow Discussion</button>
-	</div>
 	{{/if}}
-
+	<button class="btn btn-social" id="unfollowDiscussion">Share <i class="fa fa-twitter"></i> <i class="fa fa-facebook"></i><i class="fa fa-tumblr"></i></button>
+	</div>
 </div>
 </div>
 </template>

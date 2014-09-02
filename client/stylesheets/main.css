@@ -5323,6 +5323,10 @@ a {
     font-weight: bold; }
   .conversationMeta .fa-comment {
     margin-right: 5px; }
+  .conversationMeta .btn-group {
+    float: right; }
+  .conversationMeta h5 {
+    display: inline; }
 
 .commentList .observation-enter {
   margin-bottom: 12px; }
@@ -5333,8 +5337,8 @@ a {
 .commentList h4 {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 700;
-  font-size: 1.5em;
-  margin-top: 2px;
+  font-size: 1.125em;
+  margin-top: 0px;
   margin-bottom: 0px; }
 .commentList p {
   font-family: 'Source Sans Pro', sans-serif;
@@ -5355,9 +5359,7 @@ a {
   font-size: 1em; }
 .commentList img {
   float: left;
-  padding-left: 8px;
-  margin-right: 15px;
-  margin-top: 4px; }
+  margin-right: 15px; }
 
 .observation-holder {
   background-color: #f2f2f2;
@@ -5394,6 +5396,8 @@ a {
     .observation-holder .secondary-observations .text-holder {
       display: inline-block;
       width: 75%; }
+    .observation-holder .secondary-observations img {
+      margin-left: 11px; }
   .observation-holder p {
     font-size: 1.125em; }
   .observation-holder h4 {
@@ -5458,6 +5462,40 @@ a {
   .btn-unfollow .fa {
     padding-left: 5px;
     padding-right: 7px; }
+
+.btn-sort {
+  padding: 6px 20px;
+  font-size: 11px;
+  line-height: 15px;
+  border-radius: 14px;
+  font-size: 1em;
+  font-style: bold;
+  color: #000;
+  background-color: #f2f2f2;
+  border-color: #b3b3b3;
+  box-shadow: none; }
+
+.btn-social {
+  padding: 6px 20px;
+  font-size: 11px;
+  line-height: 15px;
+  border-radius: 14px;
+  float: right;
+  font-size: 1em;
+  font-style: bold;
+  color: #000;
+  background-color: #fff;
+  border-color: #999999;
+  box-shadow: none; }
+  .btn-social .fa-twitter {
+    color: #78CBEF;
+    margin-left: 25px; }
+  .btn-social .fa-facebook {
+    color: #547BBC;
+    margin-left: 12px; }
+  .btn-social .fa-tumblr {
+    margin-left: 12px;
+    color: #5E8FAE; }
 
 .fa-chevron-left {
   font-size: 3em;

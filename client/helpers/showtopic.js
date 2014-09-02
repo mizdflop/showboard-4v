@@ -131,6 +131,9 @@ Template.showtopic.events({
      		}
      	);
      },	
+     'click .btn-social': function(){
+     	alert("Social features are not yet active but will be soon.")
+     }
 });
 
 //combine into a callback function on inssert. this isn't going to work like this. 
