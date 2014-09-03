@@ -179,7 +179,7 @@
 		margin-top:5px;
 		.text-holder{
 			display: inline-block;
-			width: 75%;
+			width: 85%;
 		}
 		img{
 			margin-left: 11px;
@@ -209,6 +209,7 @@
 	padding-right: 6px;
 	background-color: #e9f0f4;	
 	border-radius: 4px;
+	min-height: 45px;
 	span{
 		float:left;
 		margin-left: 10px;
@@ -216,11 +217,12 @@
 	}
 	.interiorReply{
 		font-size: $13pt;
-		display: block;
+		display: inline-block;
 		background-color: #ffffff;
-		height: 45px;
-		width:100;
-		overflow: hidden;
+		min-height: 20px;
+		width:85%;
+		margin-left: 12px;
+
 	}
 
 }

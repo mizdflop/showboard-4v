@@ -59,15 +59,12 @@ Template.showtopic.helpers({
      	return Session.get("sortedBy");
      },
      isOriginalThought: function(str){
-     	//console.log(str);
     	return str =="Original Thought" ? true: false;
      },
      isAudio: function(str){
-     	//console.log(str);
     	return str =="Audio/Podcast" ? true: false;
      },
      isArticle: function(str){
-     	//console.log(str);
     	return str =="Article/Analysis" ? true: false;
      }          
 });
@@ -80,7 +77,7 @@ Template.showtopic.events({
 	},
 	'keydown #newObservation': function(e){
 		//console.log( $('#newObservation').text() );
-		if(e.keyCode==13){
+		if(e.keyCode==13 && !e.shiftKey){
 			insertComment( Topics.findOne()._id, Meteor.userId(), $('#newObservation').text(), 0 );
 
 			$('#newObservation').text("");
@@ -93,14 +90,12 @@ Template.showtopic.events({
 		commentRecommended(this._id, Meteor.userId());
 	},
 	'keydown .interiorReply': function(e){
-		if(e.keyCode==13){
+
+		if(e.keyCode==13 && !e.shiftKey){
 			insertComment( Topics.findOne()._id, Meteor.userId(), e.currentTarget.innerText, this._id );
-			$(e.currentTarget).text('');
+			$(e.currentTarget).html('');
 		}
 	},
-	//'click .fa-link': function(e){
-	//	Router.go("/" + this._id);
-	//},
 	'click #linkToTopics': function(){
 		Router.go(
 			"topics",

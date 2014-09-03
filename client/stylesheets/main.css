@@ -5408,7 +5408,7 @@ a {
     margin-top: 5px; }
     .observation-holder .secondary-observations .text-holder {
       display: inline-block;
-      width: 75%; }
+      width: 85%; }
     .observation-holder .secondary-observations img {
       margin-left: 11px; }
   .observation-holder p {
@@ -5433,18 +5433,19 @@ a {
   padding-bottom: 1px;
   padding-right: 6px;
   background-color: #e9f0f4;
-  border-radius: 4px; }
+  border-radius: 4px;
+  min-height: 45px; }
   .reply-to-conversation span {
     float: left;
     margin-left: 10px;
     margin-right: 10px; }
   .reply-to-conversation .interiorReply {
     font-size: 1.063em;
-    display: block;
+    display: inline-block;
     background-color: #ffffff;
-    height: 45px;
-    width: 100;
-    overflow: hidden; }
+    min-height: 20px;
+    width: 85%;
+    margin-left: 12px; }
 
 .follow-social {
   margin-top: 15px; }
