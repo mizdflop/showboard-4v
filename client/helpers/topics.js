@@ -84,6 +84,10 @@ Template.topics.helpers({
       }
     });
     return Session.get("userCount");
+  },
+  numberFollowers: function(){
+
+   return Meteor.users.find({'profile.follows': this._id}).count()
   }
 
 });
@@ -118,7 +122,35 @@ Template.topics.events({
       Session.set("sortByTag", e.target.innerHTML);
       console.log(Session.get("sortByTag"));
     }
-  } 
+  },
+  'mouseenter .getPopover': function(e){
+    console.log(e);
+    if ( e.currentTarget.className==="getPopover associatedCommentors"){
+      var theUsers = Meteor.users.find({'profile.commentedOn': this._id}).fetch();
+      var theTitle  = "Members discussing this topic";
+    } else {
+      var theUsers = Meteor.users.find({'profile.follows': this._id}).fetch();
+      var theTitle  = "Members following this topic";
+    }
+    console.log(theUsers.length);
+    $(e.target).popover({
+      html: true,
+      content: function() { 
+        var theHTML = 
+          _.map(theUsers, function(user){
+            //console.log(user);
+            return '<div class="userInPopover"><img width="45px" src="' + user.profile.image  + '">' + user.username + '</div>';
+          });
+        console.log(theHTML);
+        return theHTML;
+      },
+      title: function(){ return theTitle ; }
+    });
+    $(e.target).popover('show');
+  },
+  'mouseleave .getPopover': function(e){
+    $(e.target).popover('destroy');
+  }
 
 });
 Template.topics.rendered = function(){

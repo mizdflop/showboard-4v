@@ -76,9 +76,10 @@
 			<div class="col-xs-8 col-centered listing-border">
 				<a href="#" class="clickToTopic">
 				<img src="{{getImage}}" width="185">
+				</a>
 				<div class="info-block">
 
-					<h1>{{topicTitle}}</h1>
+					<a href="#" class="clickToTopic"><h1>{{topicTitle}}</h1></a>
 
 					{{#if isOriginalComment}}
 					<p class="article-by">An original thought by {{createdByUsername}}</p>
@@ -88,14 +89,16 @@
 					{{/if}}
 					<p class="pulled-quote">"{{conversationStarter}}"</p>
 					<div class="in-circle"><i class="fa fa-comment"></i></div>
-					<p class="observations"><span class="accent-me">{{numberComments}} observations</span> by <span class="accent-me">{{numberCommentors}} Members</span></p>
-						{{#if lastCommentTimestamp}}
-							<p class="last-comment">Last comment: {{timeAgo}}</p>
-						{{else}}
-							<p class="last-comment"> </p>
-						{{/if}}
+					<p class="observations">
+						<a href="#" class="getPopover associatedCommentors">{{numberCommentors}} Members discussing</a>; 
+						<a href="#" class="getPopover associatedFollowers">{{numberFollowers}} Members following</a>
+					</p>
+					{{#if lastCommentTimestamp}}
+						<p class="last-comment">Last comment: {{timeAgo}}</p>
+					{{else}}
+						<p class="last-comment"> </p>
+					{{/if}}
 				</div>
-				</a>
 			</div>
 		</div>
 
@@ -106,6 +109,7 @@
 
 		{{> addTopicModal }}
 
+
 		<div class="row topics-boxes-holder">
 
 
@@ -115,3 +119,4 @@
 
 	</div>
 </template>
+

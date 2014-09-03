@@ -31,8 +31,6 @@ Meteor.publish("numberOfDiscussions", function(seasonNumber, episodeNumber){
 //	return  Comments.distinct("userId" ).count();
 });
 
-
-
 Meteor.publishComposite('comments', function(topicId, commentId) {
 	return{
 		find: function(){
@@ -62,8 +60,43 @@ Meteor.publishComposite('comments', function(topicId, commentId) {
 
 });
 
+//need to add another parameter for show name, used for fetching pk
+Meteor.publishComposite('episodeData', function(seasonNumber, episodeNumber) {
+	var theId = Episodes.findOne({seasonNumber: parseInt(seasonNumber), episodeNumber: parseInt(episodeNumber)})._id;
+	return{
+		find: function(){
+			if(theId){
+				return Episodes.find({_id: theId});
+			}
+		},
+		children: [
+			{
+				find: function(episode){
+					return Topics.find({episodeId: episode._id});
+				},
+				children: [
+					{
+						find: function(topic){
+							return Comments.find({topicId: topic._id});
+						},
+						children: [
+							{
+								find: function(comment){
+									return Meteor.users.find({_id: comment.userId},
+										{ fields: { profile: 1, username: 1 } }
+									);
+								}
+							}
 
-/*Meteor.publish("comments", function(topicId){
-	return Comments.find({topicId: topicId});
+						]
+					}
+
+				]
+			}
+		]
+	}
+
 });
-*/
+
+
+

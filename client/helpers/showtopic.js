@@ -41,7 +41,7 @@ Template.showtopic.helpers({
      	}
      },
      currentFilter: function(){
-     	return Session.equals("sortByTag", false) ? "All Topics" : Session.get("sortByTag"); 
+     	return Session.equals("sortByTag", false) ? false : Session.get("sortByTag"); 
      },
      totalWithFilter: function(){
      	return Session.get("sortedIds").length;
