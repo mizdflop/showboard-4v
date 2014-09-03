@@ -145,6 +145,14 @@ Template.showtopic.events({
      },
      'click .dropdown-menu li': function(e){
      	Session.set("sortedBy", e.target.innerText);
+     },
+     'click .tag': function(){
+     	Session.set("sortByTag", [this.valueOf()]);
+     	Router.go("topics", {
+	     	series: Router.current().params['series'],
+	     	season: Router.current().params['season'],
+	     	episode: Router.current().params['episode'],
+     	});
      }
 });
 
