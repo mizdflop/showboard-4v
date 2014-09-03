@@ -5377,6 +5377,11 @@ a {
   line-height: 15px;
   border-radius: 14px; }
 
+.userInPopover {
+  padding-bottom: 40px; }
+  .userInPopover img {
+    float: left; }
+
 .tt-query, .tt-hint {
   width: 396px;
   height: 30px;
@@ -5711,9 +5716,6 @@ a {
   .btn-social .fa-tumblr {
     margin-left: 12px;
     color: #5E8FAE; }
-
-.userInPopover {
-  margin-bottom: 18px; }
 
 .fa-chevron-left {
   font-size: 3em;

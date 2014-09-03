@@ -169,3 +169,9 @@
 .btn-rounded {
 	@include button-size(6px, 20px, 11px, 15px, 14px)
 }
+.userInPopover{
+	padding-bottom: 40px;
+	img{
+		float: left;
+	}
+}

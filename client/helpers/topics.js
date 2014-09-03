@@ -120,11 +120,11 @@ Template.topics.events({
       e.target.innerHTML =="TOP 10"
     ){ 
       Session.set("sortByTag", e.target.innerHTML);
-      console.log(Session.get("sortByTag"));
+      //console.log(Session.get("sortByTag"));
     }
   },
   'mouseenter .getPopover': function(e){
-    console.log(e);
+    //console.log(e);
     if ( e.currentTarget.className==="getPopover associatedCommentors"){
       var theUsers = Meteor.users.find({'profile.commentedOn': this._id}).fetch();
       var theTitle  = "Members discussing this topic";
@@ -132,7 +132,9 @@ Template.topics.events({
       var theUsers = Meteor.users.find({'profile.follows': this._id}).fetch();
       var theTitle  = "Members following this topic";
     }
-    console.log(theUsers.length);
+    if(theUsers.length==0){
+      return false;
+    }
     $(e.target).popover({
       html: true,
       content: function() { 
