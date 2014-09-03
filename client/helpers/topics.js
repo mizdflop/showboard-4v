@@ -7,6 +7,9 @@ Template.topics.helpers({
   thisEpisode: function(){
     return Episodes.findOne();
   },
+  episodeNumberFormat: function(epNumber){
+    return epNumber < 10 ? "0" + epNumber.toString() : epNumber;
+  },
   scenesArray: function(){
     return Episodes.findOne().scenes;
   },
