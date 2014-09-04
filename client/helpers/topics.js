@@ -142,10 +142,8 @@ Template.topics.events({
       content: function() { 
         var theHTML = 
           _.map(theUsers, function(user){
-            //console.log(user);
             return '<div class="userInPopover"><img width="45px" src="' + user.profile.image  + '">' + user.username + '</div>';
           });
-        console.log(theHTML);
         return theHTML;
       },
       title: function(){ return theTitle ; }

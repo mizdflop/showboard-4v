@@ -69,6 +69,9 @@ Template.showtopic.helpers({
      },
      isArticle: function(str){
     	return str =="Article/Analysis" ? true: false;
+     },
+     numCommentors: function(){
+     	return Meteor.users.find({'profile.commentedOn': Router.current().params['topicid']}).count(); 
      }          
 });
 
