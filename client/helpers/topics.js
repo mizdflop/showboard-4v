@@ -86,8 +86,10 @@ Template.topics.helpers({
     return Session.get("userCount");
   },
   numberFollowers: function(){
-
    return Meteor.users.find({'profile.follows': this._id}).count()
+  },
+  numberCommentors: function(){
+    return Meteor.users.find({'profile.commentedOn': this._id}).count()
   }
 
 });
@@ -124,7 +126,7 @@ Template.topics.events({
     }
   },
   'mouseenter .getPopover': function(e){
-    //console.log(e);
+    console.log(this._id);
     if ( e.currentTarget.className==="getPopover associatedCommentors"){
       var theUsers = Meteor.users.find({'profile.commentedOn': this._id}).fetch();
       var theTitle  = "Members discussing this topic";

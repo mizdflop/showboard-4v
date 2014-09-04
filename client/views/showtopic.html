@@ -3,7 +3,7 @@
 <div class="row breadcrumbs">
 	<div class="col-xs-12">
 			<span class="episodeTitle">{{series.seriesTitle}}</span> <span class="episodeInfo">
-			<a id="linkToTopics" href="#">{{episode.seasonNumber}}.{{episode.episodeNumber}} - {{episode.title}} >
+			<a id="linkToTopics" href="#">{{episode.seasonNumber}}.{{episodeNumberFormat episode.episodeNumber}} - {{episode.title}} &#8250;
 			{{currentFilter}}</a> ({{placmentInArrayFilter}} of {{totalWithFilter}})</span>
 			{{> inThisDiscussion }}
 	</div>
@@ -32,10 +32,10 @@
 				<img class="img-responsive" src="{{topic.originalThoughtImageSource}}">
 				<h5 class="origComment">An orignal comment by {{topic.createdByUsername}}:</h5> 
 		{{else}}
-		<h5 class="origComment">By: 
+		<h5 class="origComment">By 
 			{{topic.linkedArticleInfo.author}}
 			{{topic.linkedAudioInfo.author}}</h5>
-		<h5 class="is-from">From <a href="{{topic.linkedArticleInfo.URL}}">
+		<h5 class="is-from">From <a href="{{topic.linkedArticleInfo.URL}}" target="_blank">
 			{{topic.linkedArticleInfo.title}}
 			{{topic.linkedAudioInfo.title}}</a> on 
 			{{topic.linkedArticleInfo.site}}

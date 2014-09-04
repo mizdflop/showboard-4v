@@ -4,6 +4,9 @@ Template.showtopic.helpers({
 	formatDate: function (timestamp) {
 		return moment().format('LL', timestamp);
 	},
+  	episodeNumberFormat: function(epNumber){
+    	return epNumber < 10 ? "0" + epNumber.toString() : epNumber;
+  	},
 	initialText: function(){
 		return initialEnterText;
 	},
@@ -78,7 +81,7 @@ Template.showtopic.events({
 	'keydown #newObservation': function(e){
 		//console.log( $('#newObservation').text() );
 		if(e.keyCode==13 && !e.shiftKey){
-			insertComment( Topics.findOne()._id, Meteor.userId(), $('#newObservation').text(), 0 );
+			insertComment( Router.current().params['topicid'], Meteor.userId(), $('#newObservation').text(), 0 );
 
 			$('#newObservation').text("");
 		}
@@ -92,7 +95,7 @@ Template.showtopic.events({
 	'keydown .interiorReply': function(e){
 
 		if(e.keyCode==13 && !e.shiftKey){
-			insertComment( Topics.findOne()._id, Meteor.userId(), e.currentTarget.innerText, this._id );
+			insertComment( Router.current().params['topicid'], Meteor.userId(), e.currentTarget.innerText, this._id );
 			$(e.currentTarget).html('');
 		}
 	},
@@ -166,6 +169,7 @@ function insertComment(topicId, userId, commentText, parent){
 	}
 	if( Meteor.user().profile.commentedOn === undefined || Meteor.user().profile.commentedOn.indexOf(topicId) === -1){
 		Meteor.users.update(
+
 			{_id: Meteor.userId() },
 			{$push: { "profile.commentedOn": topicId }}
 		);

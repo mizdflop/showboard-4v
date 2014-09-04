@@ -82,13 +82,20 @@ Meteor.publishComposite('episodeData', function(seasonNumber, episodeNumber) {
 						children: [
 							{
 								find: function(comment){
-									return Meteor.users.find({_id: comment.userId},
-										{ fields: { profile: 1, username: 1 } }
-									);
+									return Meteor.users.find(
+											{_id: comment.userId}, { fields: { profile: 1, username: 1 } }	 
+									);	
 								}
 							}
 
 						]
+					},
+					{
+						find: function(topic){
+							return Meteor.users.find(
+								{$or: [{'profile.follows': topic._id},{'profile.commentedOn': topic._id} ]},  { fields: { profile: 1, username: 1 } }
+							);
+						}
 					}
 
 				]
