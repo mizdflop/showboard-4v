@@ -28,9 +28,6 @@ Template.showtopic.helpers({
      getUserName: function (){
      	return Meteor.users.findOne({_id:this.userId}).username;
      },
-     getMyImage: function(){
-     	return Meteor.user().profile.image;
-     },
      followed: function(){
      	return Meteor.user().profile.follows.indexOf(Router.current().params['topicid'])==-1 ? false : true; 
      },

@@ -77,12 +77,12 @@
 <div class="row commentList row-centered">
 	<div class="col-xs-8 col-centered">
 		<div class="observation-enter">
-			<img src="{{getMyImage}}" width="55px">
+			<img src="{{getSquareImage "me" 50}}" >
 			<div class="observation-holder" id="newObservation" contenteditable="true">{{initialText}}</div>
 		</div>
 		{{#each comments}}
 			<div class="observation-block">
-				<img src="{{getProfileImage}}" width="50px">
+				<img src="{{getSquareImage this.userId 50}}">
 				<div class="observation-holder">
 					{{ >linkToThread threadContext }}
 					<div class="primary-observation">
@@ -100,7 +100,7 @@
 
 					{{#each nestedComment this._id}}
 					<div class="secondary-observations">
-						<img src="{{getProfileImage}}" width="45px">
+						<img src="{{getSquareImage this.userId 50}}" >
 						<div class="text-holder">
 							<h4>{{getUserName}}</h4>
 							{{#markdown}}{{commentText}}{{/markdown}}
@@ -150,7 +150,7 @@
 		<span class="inThisDiscussion">	
 			<h5>Discussing this topic:</h5>
 			{{#each topicCommentor}}
-				<img src="{{profile.image}}" height="25px">
+				<img src="{{getSquareImage _id 25}}">
 			{{/each}}
 		</span>
 	{{/if}}
