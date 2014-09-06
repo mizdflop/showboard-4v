@@ -24,7 +24,7 @@
 	}
 	h4 {
 		font-size: $36pt;	
-		font-family: $accent_font;
+		font-family: $primary_font;
 		font-weight: 700;
 		color: #ffffff;
 
@@ -179,5 +179,8 @@
 	}
 	p{
 		padding-top: 8px;
+	}
+	&:last-of-type{
+		margin-botom: 5px;
 	}
 }

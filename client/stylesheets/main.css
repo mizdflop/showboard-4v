@@ -5258,7 +5258,7 @@ a {
     letter-spacing: 3px; }
   .title-holder h4 {
     font-size: 1.85em;
-    font-family: 'Open Sans';
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 700;
     color: #ffffff; }
   .title-holder h5 {
@@ -5386,6 +5386,8 @@ a {
     margin-right: 12px; }
   .userInPopover p {
     padding-top: 8px; }
+  .userInPopover:last-of-type {
+    margin-botom: 5px; }
 
 .tt-query, .tt-hint {
   width: 396px;
