@@ -5381,7 +5381,12 @@ a {
 .userInPopover {
   padding-bottom: 40px; }
   .userInPopover img {
-    float: left; }
+    float: left;
+    margin-left: 8px;
+    margin-right: 12px; }
+  .userInPopover p {
+    display: inline;
+    padding-top: 22px; }
 
 .tt-query, .tt-hint {
   width: 396px;

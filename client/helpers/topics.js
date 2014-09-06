@@ -132,7 +132,7 @@ Template.topics.events({
       var theTitle  = "Members discussing this topic";
     } else {
       var theUsers = Meteor.users.find({'profile.follows': this._id}).fetch();
-      var theTitle  = "Members following this topic";
+      var theTitle  = "Members following this topic:";
     }
     if(theUsers.length==0){
       return false;
@@ -142,7 +142,7 @@ Template.topics.events({
       content: function() { 
         var theHTML = 
           _.map(theUsers, function(user){
-            return '<div class="userInPopover"><img width="45px" src="' + user.profile.image  + '">' + user.username + '</div>';
+            return '<div class="userInPopover"><img width="45 height="45" src="' + coudinaryFiltered(user.profile.image, 45)  + '"><p>' + user.username + '</p></div>';
           });
         return theHTML;
       },
@@ -158,3 +158,8 @@ Template.topics.events({
 Template.topics.rendered = function(){
 
 };
+function coudinaryFiltered (baseImgUrl, size){
+   var cloudinaryFilter = "c_fill,g_face,h_" + size + ",w_" + size + "/";
+   var posOfUpload =  baseImgUrl.indexOf("upload/")+7;
+   return baseImgUrl.substring(0, posOfUpload) + cloudinaryFilter + baseImgUrl.substring(posOfUpload);
+}
