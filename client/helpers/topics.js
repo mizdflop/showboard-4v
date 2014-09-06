@@ -122,7 +122,6 @@ Template.topics.events({
       e.target.innerHTML =="TOP 10"
     ){ 
       Session.set("sortByTag", e.target.innerHTML);
-      //console.log(Session.get("sortByTag"));
     }
   },
   'mouseenter .getPopover': function(e){
