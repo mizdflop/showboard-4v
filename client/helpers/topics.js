@@ -84,6 +84,12 @@ Template.topics.helpers({
       }
     });
     return Session.get("userCount");
+  },
+  numberFollowers: function(){
+   return Meteor.users.find({'profile.follows': this._id}).count()
+  },
+  numberCommentors: function(){
+    return Meteor.users.find({'profile.commentedOn': this._id}).count()
   }
 
 });
@@ -116,11 +122,44 @@ Template.topics.events({
       e.target.innerHTML =="TOP 10"
     ){ 
       Session.set("sortByTag", e.target.innerHTML);
-      console.log(Session.get("sortByTag"));
+      //console.log(Session.get("sortByTag"));
     }
-  } 
+  },
+  'mouseenter .getPopover': function(e){
+    console.log(this._id);
+    if ( e.currentTarget.className==="getPopover associatedCommentors"){
+      var theUsers = Meteor.users.find({'profile.commentedOn': this._id}).fetch();
+      var theTitle  = "Members discussing this topic";
+    } else {
+      var theUsers = Meteor.users.find({'profile.follows': this._id}).fetch();
+      var theTitle  = "Members following this topic:";
+    }
+    if(theUsers.length==0){
+      return false;
+    }
+    $(e.target).popover({
+      html: true,
+      content: function() { 
+        var theHTML = 
+          _.map(theUsers, function(user){
+            return '<div class="userInPopover"><img width="45 height="45" src="' + coudinaryFiltered(user.profile.image, 45)  + '"><p>' + user.username + '</p></div>';
+          });
+        return theHTML;
+      },
+      title: function(){ return theTitle ; }
+    });
+    $(e.target).popover('show');
+  },
+  'mouseleave .getPopover': function(e){
+    $(e.target).popover('destroy');
+  }
 
 });
 Template.topics.rendered = function(){
 
 };
+function coudinaryFiltered (baseImgUrl, size){
+   var cloudinaryFilter = "c_fill,g_face,h_" + size + ",w_" + size + "/";
+   var posOfUpload =  baseImgUrl.indexOf("upload/")+7;
+   return baseImgUrl.substring(0, posOfUpload) + cloudinaryFilter + baseImgUrl.substring(posOfUpload);
+}
