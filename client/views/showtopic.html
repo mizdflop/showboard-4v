@@ -82,7 +82,7 @@
 		</div>
 		{{#each comments}}
 			<div class="observation-block">
-				<img src="{{getProfileImage}}" width="55px">
+				<img src="{{getProfileImage}}" width="50px">
 				<div class="observation-holder">
 					{{ >linkToThread threadContext }}
 					<div class="primary-observation">
@@ -104,6 +104,15 @@
 						<div class="text-holder">
 							<h4>{{getUserName}}</h4>
 							{{#markdown}}{{commentText}}{{/markdown}}
+
+							<p class="observation-meta">{{timeAgo timestamp}} | 
+							{{#if alreadyRecommended recommendedBy}}
+									Recommended ({{recommendedBy.length}})  
+							{{else}}
+									<a class="recommended-link" href="#"> Recommended</a> ({{recommendedBy.length}}) 
+							{{/if}}
+							</p>
+
 						</div>
 					</div>
 					{{/each}}
