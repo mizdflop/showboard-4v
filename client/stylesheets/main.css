@@ -5379,14 +5379,13 @@ a {
   border-radius: 14px; }
 
 .userInPopover {
-  padding-bottom: 40px; }
+  padding-bottom: 30px; }
   .userInPopover img {
     float: left;
     margin-left: 8px;
     margin-right: 12px; }
   .userInPopover p {
-    display: inline;
-    padding-top: 22px; }
+    padding-top: 8px; }
 
 .tt-query, .tt-hint {
   width: 396px;
