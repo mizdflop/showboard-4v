@@ -28,7 +28,7 @@ Meteor.methods({
 	    }
 	},
 	save_url: function(image){
-        console.log(image.upload_data.url);
+        //console.log(image.upload_data.url);
         Meteor.users.update(
         	{_id: Meteor.userId() },
         	{ $set: {"profile.image": image.upload_data.url }}

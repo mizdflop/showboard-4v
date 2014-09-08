@@ -1,7 +1,16 @@
 <template name="dashboard">
 	{{#c_upload callback="save_url"}}
 	    <input type="file">
+		<div class="testDrop">
+
+		</div>
 	{{/c_upload}}
-	<img src="{{profileImage}}">
+	{{#if imageUploading}}
+		<img src="ajax-loader.gif">
+	{{else}}
+		<img src="{{getSquareImage "me" 350}}">
+	{{/if}}
+
+
 
 </template>
